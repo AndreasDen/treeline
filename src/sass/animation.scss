@@ -1,0 +1,152 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes moveright {
+  from {
+    left: -70px;
+  }
+  to {
+    left: -60px;
+  }
+}
+
+@keyframes moveleft {
+  from {
+    left: 20px;
+  }
+  to {
+    left: 10px;
+  }
+}
+
+@keyframes moveup {
+  from {
+    top: 60px;
+  }
+  to {
+    top: 30px;
+  }
+}
+
+@keyframes movedown {
+  from {
+    top: -10px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes moveclose {
+  from {
+    top: 50%;
+  }
+  to {
+    top: 3%;
+  }
+}
+@keyframes moveclose-reverse {
+  from {
+    top: 3%;
+  }
+  to {
+    top: 50%;
+  }
+}
+
+@keyframes diagonal {
+  from {
+    bottom: -15%;
+    left: -33%;
+  }
+  to {
+    bottom: -10%;
+    left: -27%;
+  }
+}
+
+@keyframes scale {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes scale-reverse {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes moveup-video {
+  from {
+    top: 50%;
+  }
+  to {
+    top: -1%;
+  }
+}
+
+@keyframes moveup-video-reverse {
+  from {
+    top: -1%;
+  }
+  to {
+    top: 50%;
+  }
+}
+
+@keyframes movedown-video {
+  from {
+    bottom: 50%;
+  }
+  to {
+    bottom: -1%;
+  }
+}
+
+@keyframes movedown-video-reverse {
+  from {
+    bottom: -1%;
+  }
+  to {
+    bottom: 50%;
+  }
+}
+
+@keyframes fadenotall {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.75;
+  }
+}
+
+@keyframes fadenotallreverse {
+  from {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
