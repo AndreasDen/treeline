@@ -14,6 +14,10 @@ a {
   }
 }
 
+p {
+  margin-bottom: 0;
+}
+
 //--------------HEADER--------------
 //#header {
 //  //z-index: 20;
@@ -39,6 +43,12 @@ a {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+.treeline-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -10;
+}
 
 #main {
   background-color: $greydark;
@@ -46,17 +56,18 @@ a {
 }
 
 .text-thin {
-  font-size: 3em;
+  font-size: 2em;
   font-family: Roboto;
   font-weight: 100;
 }
 
 .text-bold {
-  font-size: 5em;
-  letter-spacing: 10px;
+  font-size: 4em;
+  text-shadow: 0px 4px #d4af37;
   font-family: Rockwell;
   &.text-small {
-    font-size: 3em;
+    text-shadow: 0px 2px #d4af37;
+    font-size: 1.5em;
   }
 }
 
@@ -64,7 +75,6 @@ a {
   font-family: Roboto;
   font-weight: 300;
   font-size: 1.5em;
-
 }
 
 .region-one {
@@ -107,14 +117,18 @@ a {
   }
 
   .content {
+    width: 75%;
     height: 100%;
+    margin: 0 auto;
     position: relative;
+    display: flex;
+    align-items: center;
   }
 
   .video-wrapper {
     position: fixed;
     z-index: 10;
-    width: 40%;
+    width: 75%;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -127,7 +141,7 @@ a {
       border-left: 3px solid $gold;
       height: 25px;
       z-index: -1;
-      left: -.5%;
+      left: -9px;
       bottom: -1%;
     }
     &:after {
@@ -137,7 +151,7 @@ a {
       border-top: 3px solid $gold;
       border-right: 3px solid $gold;
       height: 25px;
-      right: -0.5%;
+      right: -9px;
       z-index: -1;
       top: -1%;
     }
@@ -185,10 +199,7 @@ a {
 
   }
 
-  .overlay-main, .overlay-bottom, .overlay-video {
-    position: absolute;
-    animation: fadein 1s;
-
+  .text-left, .text-bottom, .text-right {
     &:after {
       content: "";
       position: absolute;
@@ -203,18 +214,20 @@ a {
       transition: 500ms ease-in-out;
     }
     .text {
+      animation: fadein 1s;
       cursor: default;
     }
   }
 
-  .overlay-main {
-    top: 10%;
-    left: 10%;
+  .text-left {
+    flex: 1 1;
+    min-height: 150px;
+    position: relative;
+    padding-left: 30px;
     &:after {
       height: 75px;
-      top: 30px;
-      left: -5%;
-      animation: moveup .75s;
+      top: 35px;
+      left: -1.3%;
     }
     &:hover {
       &:after {
@@ -235,32 +248,25 @@ a {
     }
   }
 
-  .overlay-bottom {
+  .text-bottom {
+    position: relative;
     text-align: center;
-    left: 50%;
-    bottom: 5%;
-    transform: translate(-50%);
+    align-self: flex-end;
+    margin-bottom: 20px;
     &:after {
       height: 4px;
-      top: -5%;
-      left: -60px;
+      top: -15%;
+      left: 50%;
       width: 75px;
-      animation: moveright .75s;
+      transform: translateX(-50%);
     }
     &:hover {
       &:after {
-        left: -30px;
-      }
-      .text {
-        p {
-          left: 0;
-        }
       }
     }
     .text {
       cursor: pointer;
       p {
-        left: 10px;
         animation: moveleft .75s;
       }
     }
@@ -269,40 +275,49 @@ a {
     }
   }
 
-  .overlay-video {
-    position: absolute;
-    width: 200px;
-    right: 12%;
-    top: 22%;
-
+  .text-right {
+    min-height: 150px;
+    position: relative;
+    flex: 1 1;
+    text-align: end;
+    padding-right: 30px;
+    &:after {
+      height: 75px;
+      top: 35px;
+      right: -1.3%;
+    }
     &:hover {
+      &:after {
+        top: 75px;
+      }
       .play-button {
         .glyphicon {
-          transform: scale(1.2);
+          transform: scale(1.1);
         }
       }
       .text {
         p {
-          left: 0;
+          top: -10px;
         }
       }
     }
     .text {
       p {
-        left: 10px;
-        animation: moveleft .75s, movedown .75s;
+        top: 0;
+        animation: moveup .75s;
       }
     }
     .play-button {
+      z-index: 1;
+      right: 170px;
       position: absolute;
-      right: -25%;
-      bottom: -8%;
+      top: -15px;
       cursor: pointer;
 
       .glyphicon {
         transition: .5s ease-in-out;
         background-color: $gold;
-        font-size: 45px;
+        font-size: 25px;
         padding: 10px 8px 10px 12px;
       }
     }
@@ -435,6 +450,7 @@ a {
     font-size: 2em;
   }
   .text-bold {
+    text-shadow: 0px 3px #d4af37;
     font-size: 3em;
     &.text-small {
       font-size: 1.5em;
@@ -447,25 +463,10 @@ a {
   .region-one {
     .video-wrapper {
       width: 100%;
-      max-width: 82%;
+      max-width: 80%;
     }
-    .overlay-main {
-
-      .text {
-      }
-      .glyphicon {
-        font-size: 40px;
-      }
-    }
-    .overlay-video {
-      right: 15%;
-      top: 10%;
-      .play-button {
-        right: -23%;
-        .glyphicon {
-          font-size: 30px;
-        }
-      }
+    .content {
+      width: 80%;
     }
   }
 
@@ -474,34 +475,17 @@ a {
 @media (max-width: 786px) {
 
   .text-bold {
+    text-shadow: 0px 2px #d4af37;
     font-size: 2em;
   }
   .region-one {
-    .overlay-video, .overlay-main {
-      position: unset;
-      text-align: center;
-      padding: 10px;
-
-      p {
-        position: unset;
-      }
-    }
-
-    .overlay-video {
-      width: 100%;
-
+    .text-right {
       .play-button {
         position: unset;
       }
     }
 
-    .overlay-main {
-      margin: 20px 0;
-
-      &:after {
-        height: 25px;
-        left: 10px;
-      }
+    .text-left {
 
       p {
         display: inline-block;
@@ -511,7 +495,7 @@ a {
       }
     }
 
-    .overlay-bottom {
+    .text-bottom {
       &:after {
         width: 25px;
         left: -30px;
