@@ -73,20 +73,20 @@ function playAndPause() {
 // });
 
 
-
 var $animation_elements = $('.animation-element');
+var $fixed_elements = $('.fixed-element');
+var $fixed_element_offset = $fixed_elements.offset().top;
 var $window = $(window);
+
 
 function check_if_in_view() {
     var window_height = $window.height();
     var window_top_position = $window.scrollTop();
     var window_bottom_position = (window_top_position + window_height);
 
-    console.log("window_HEIGHT", window_height);
-    console.log("window_top_position", window_top_position);
-    console.log("window_bottom_position", window_bottom_position);
 
-    $.each($animation_elements, function() {
+
+    $.each($animation_elements, function () {
         var $element = $(this);
         var element_height = $element.outerHeight();
         var element_top_position = $element.offset().top;
@@ -94,13 +94,56 @@ function check_if_in_view() {
 
         //check to see if this current container is within viewport
         if ((element_bottom_position >= window_top_position) &&
-            (element_top_position < window_bottom_position -100)) {
+            (element_top_position < window_bottom_position - 100)) {
             $element.addClass('in-view');
         } else {
             $element.removeClass('in-view');
+        }
+    });
+
+    $.each($fixed_elements, function() {
+        var $element = $(this);
+
+        console.log( $fixed_element_offset)
+        //check to see if this current container is within viewport
+        if (window.pageYOffset >= $fixed_element_offset -30) {
+            $element.addClass('fixed');
+        }
+        else {
+            $element.removeClass('fixed');
         }
     });
 }
 
 $window.on('scroll resize', check_if_in_view);
 $window.trigger('scroll');
+
+$.fn.moveIt = function(){
+    var $window = $(window);
+    var instances = [];
+
+    $(this).each(function(){
+        instances.push(new moveItItem($(this)));
+    });
+
+    window.addEventListener('scroll', function(){
+        var scrollTop = $window.scrollTop();
+        instances.forEach(function(inst){
+            inst.update(scrollTop);
+        });
+    }, {passive: true});
+}
+
+var moveItItem = function(el){
+    this.el = $(el);
+    this.speed = parseInt(this.el.attr('data-scroll-speed'));
+};
+
+moveItItem.prototype.update = function(scrollTop){
+    this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
+};
+
+// Initialization
+$(function(){
+    $('[data-scroll-speed]').moveIt();
+});
