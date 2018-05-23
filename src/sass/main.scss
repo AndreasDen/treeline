@@ -25,21 +25,21 @@ body {
 }
 
 .text-thin {
-  font-size: $fontsize-lg;
-  font-family: Roboto;
-  font-weight: 100;
+  font-size: $fontsize-md;
+  font-family: $font-family-secondary;
+  font-weight: 300;
 }
 .text-bold {
   font-size: $fontsize-main;
-  text-shadow: 0px 4px $gold;
-  font-family: Rockwell;
+  text-shadow: 3px 3px $gold;
+  font-family: $font-family-primary;
   &.text-small {
     text-shadow: 0px 2px $gold;
     font-size: $fontsize-lg;
   }
 }
 .text-smaller {
-  font-family: Roboto;
+  font-family: $font-family-secondary;
   font-weight: 300;
   font-size: $fontsize-md;
 }
@@ -50,6 +50,30 @@ body {
   position: fixed;
   transform: translateX(-50%);
   left: 50%;
+}
+
+.close {
+  opacity: 1;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 20;
+  width: 40px;
+  position: absolute;
+  right: 2%;
+  color: $greylight;
+  text-shadow: 3px 3px $gold;
+  text-align: center;
+  top: 3%;
+  height: 40px;
+  background: none;
+  line-height: 0.8;
+  font-family: $font-family-secondary;
+  font-weight: bold;
+
+  &:hover, &:focus {
+    color: #fff;
+    opacity: 1;
+  }
 }
 
 //--------------REGION ONE--------------
@@ -75,7 +99,7 @@ body {
       }
 
       .video-wrapper {
-        .video-close {
+        .close {
           animation: moveclose-reverse .5s, fadeout .5s;
         }
         .myVideo {
@@ -130,7 +154,9 @@ body {
       z-index: -1;
       top: -1%;
     }
-
+    .close {
+      display: none;
+    }
     &.visible {
       &:after {
         animation: moveup-video .5s;
@@ -142,31 +168,13 @@ body {
         display: block;
         animation: scale .5s;
       }
-      .video-close {
+      .close {
         display: block;
         animation: fadein .5s, moveclose .5s;
         transition: ease-in-out;
       }
     }
 
-    .video-close {
-      cursor: pointer;
-      display: none;
-      font-size: 40px;
-      z-index: 20;
-      width: 40px;
-      position: absolute;
-      right: 2%;
-      color: $greylight;
-      text-shadow: 3px 3px $gold;
-      text-align: center;
-      top: 3%;
-      height: 40px;
-      background: none;
-      line-height: 0.8;
-      font-family: Roboto;
-      font-weight: bold;
-    }
     .myVideo {
       display: none;
       width: 100%;
@@ -176,6 +184,7 @@ body {
   }
 
   .text-left, .text-bottom, .text-right {
+    max-width: 250px;
     &:after {
       content: "";
       position: absolute;
@@ -251,6 +260,7 @@ body {
   }
 
   .text-right {
+    margin-left: auto;
     min-height: 150px;
     position: relative;
     padding-right: 30px;
@@ -377,7 +387,7 @@ body {
     display: flex;
     justify-content: center;
     .fab, .far {
-      font-size: 40px;
+      font-size: 30px;
       padding: 5px;
       margin: 25px 15px;
       color: $greylight;
@@ -409,8 +419,8 @@ body {
   }
 }
 .legal-notice {
-  position: absolute;
-  top: 195%;
+  position: relative;
+  bottom: 4%;
   left: 2%;
   .legal-cta {
     cursor: pointer;
@@ -419,8 +429,7 @@ body {
 .modal {
   padding-right: 0 !important;
   .modal-dialog {
-    max-width: 80%;
-    height: 100%;
+    max-width: 100%;
   }
 
   .modal-content {
@@ -429,12 +438,27 @@ body {
     height: 100%;
   }
 
+  .close {
+    top: 0;
+    left: 50%;
+  }
+
   .legals {
     display: flex;
     margin-top: 20px;
     .impressum, .privacy-policy {
       flex: 1 1;
       padding: 0 20px;
+
+      p {
+        font-family: $font-family-secondary;
+        font-weight: 300;
+      }
+      h3:not(.text-bold) {
+        font-family: $font-family-secondary;
+        font-weight: bold;
+        font-size: 14px;
+      }
     }
     .privacy-policy {
       flex-basis: 50%;

@@ -29,11 +29,13 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Passion+One" rel="stylesheet">
 </head>
 <body>
 <!--<div id="header">-->
 <!--<nav class="navbar navbar-dark">-->
 <!--<a class="navbar-brand" href="#">TREELINE</a>-->
+<!--</nav>-->
 <!--</nav>-->
 <!--</div>-->
 <div id="main">
@@ -41,7 +43,9 @@
     <img src="assets/black-wood_1.png" alt="" class="treeline-background">
     <div class="region-one">
         <div class="video-wrapper">
-            <span class="video-close">x</span>
+            <div class="close">
+                <span >x</span>
+            </div>
             <video class="myVideo" controls>
                 <source src="assets/TREELINE.mp4" type="video/mp4">
             </video>
@@ -56,7 +60,7 @@
             </div>
             <div class="text-bottom fixed-element" data-scroll-speed="-8">
                 <div class="text">
-                    <p class="text-bold text-small">SUPPORT US.</p>
+                    <p class="text-bold text-small">SUPPORT US</p>
                     <span class="glyphicon glyphicon-chevron-down"></span>
                 </div>
             </div>
@@ -112,21 +116,24 @@
                 </div>
             </div>
         </div>
-        <div class="legal-notice">
-            <a class="legal-cta" data-toggle="modal" data-target="#exampleModal">Impressum & Datenschutz</a>
-        </div>
+    </div>
+    <div class="legal-notice">
+        <a class="legal-cta" data-toggle="modal" data-target="#exampleModal">Impressum & Datenschutz</a>
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <div class="modal-body">
                 <div class="legals">
                     <div class="privacy-policy">
-                        <h3>Geltungsbereich und Umgang mit personenbezogenen Daten</h3>
+                        <h3 class="text-bold text-small">Geltungsbereich und Umgang mit personenbezogenen Daten</h3>
                         <p>Diese Datenschutzerklärung informiert die Nutzer darüber, in welchem Umfang und zu welchem Zwecke
                             die Erhebung und Verarbeitung personenbezogener Daten erfolgt.</p>
-                        <h3>1. Allgemeine Hinweise und PflichtinformationenDatenschutz</h3>
+                        <h3 class="text-bold text-small">1. Allgemeine Hinweise und PflichtinformationenDatenschutz</h3>
                         <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln
                             Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen
                             Datenschutzvorschriften sowie dieser Datenschutzerklärung. Wenn Sie diese Website benutzen,
@@ -136,7 +143,7 @@
                             das geschieht. Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der
                             Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor
                             dem Zugriff durch Dritte ist nicht möglich.</p>
-                        <h3>2. Plugins</h3>
+                        <h3 class="text-bold text-small">2. Plugins</h3>
                         <h3>Facebook-Plugins (Like & Share-Button)</h3>
                         <p>Auf unseren Seiten sind Plugins des sozialen Netzwerks Facebook, Anbieter Facebook Inc., 1 Hacker
                             Way, Menlo Park, California 94025, USA, integriert. Die Facebook-Plugins erkennen Sie an dem
@@ -172,7 +179,7 @@
                             der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch Instagram
                             erhalten. Weitere Informationen hierzu finden Sie in der Datenschutzerklärung von Instagram:
                             https://instagram.com/about/legal/privacy/.</p>
-                        <h3>3. Plugins und Tools</h3>
+                        <h3 class="text-bold text-small">3. Plugins und Tools</h3>
                         <h3>Google Web Fonts</h3>
                         <p> Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Web Fonts, die von
                             Google bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web
@@ -187,7 +194,7 @@
                             https://www.google.com/policies/privacy/.</p>
                     </div>
                     <div class="impressum">
-                        <h3>Verantwortlich für diese Website ist:</h3>
+                        <h3 class="text-bold text-small" >Verantwortlich für diese Website ist:</h3>
                         <p>Andreas Dennerlein<br>Renzenhoferstrasse 3 <br>90552 R&ouml;thenbach <br>+49 151 54079571 <br>info@treeline-biking.com
                         </p>
                     </div>

@@ -54,7 +54,7 @@ function allVideoFunctions() {
 
     function hideVideo() {
         //Get the close cta
-        var close = $(videoWrapper).find('.video-close');
+        var close = $(videoWrapper).find('.close');
         // pause, hide Video and remove overlay on click
         $(close).on('click', function () {
             $(container).addClass('overlay-fade-out');
