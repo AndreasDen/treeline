@@ -378,7 +378,8 @@ body {
     justify-content: center;
     .fab, .far {
       font-size: 40px;
-      padding: 30px 20px;
+      padding: 5px;
+      margin: 25px 15px;
       color: $greylight;
       transition: all 200ms ease-out .1s;
       cursor: pointer;
@@ -501,7 +502,7 @@ body {
     .social-media-follow-buttons, .social-media-share-buttons {
       .fab, .far {
         font-size: 30px;
-        padding: 20px 15px;
+        margin: 15px 10px;
       }
     }
     .legal-notice {
