@@ -13,16 +13,36 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                use:  ExtractTextPlugin.extract({
+                use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { loader: 'css-loader', options: { minimize: true } },
-                        { loader: 'sass-loader'}
+                        {loader: 'css-loader?url=false', options: {minimize: true}},
+                        {loader: 'sass-loader'},
+                        {loader: 'image-webpack-loader', options: {bypassOnDebug: true}}
                     ]
                 })
+            },
+            // {
+            //     test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+            //     use: ExtractTextPlugin.extract({
+            //         use: [
+            //             {loader: 'url-loader',  options: {limit: 8192}}
+            //         ]
+            //     })
+            // },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {}
+                    }
+                ]
             }
+
         ]
     },
+
     plugins: [
         new ExtractTextPlugin
         ({ // define where to save the file
@@ -30,5 +50,5 @@ module.exports = {
             allChunks: true
         }),
         new UglifyJsPlugin()
-        ]
+    ]
 };

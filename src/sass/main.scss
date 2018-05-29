@@ -18,6 +18,7 @@ body {
 }
 
 #main {
+  background-color: black;
   height: 100vh;
   color: $greylight;
   .inner {
@@ -82,9 +83,14 @@ body {
 
 //--------------REGION ONE--------------
 .region-one {
-  background-color: black;
   width: 100%;
   height: 100%;
+  background-image: url("../../assets/blackwood1.png") ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: center;
+  backface-visibility: hidden;
   &.overlay {
     &:after {
       content: "";
@@ -312,120 +318,115 @@ body {
 .region-two {
   background-color: black;
   width: 100%;
-  height: 100%;
-
-  .topic {
-    text-align: center;
-    padding: 0 0 60px 0;
-    opacity: 0;
-    transition: all 700ms ease-out .1s;
-    &.in-view {
-      opacity: 1;
-    }
+  min-height: 100%;
+  position: relative;
+  .inner {
+    flex-direction: column;
+    justify-content: space-between;
   }
   .bullet-points {
     width: 100%;
     display: flex;
     align-items: flex-end;
+    margin-top: 100px;
     p {
       text-align: center;
     }
-  }
-  .funding, .social-media, .visit {
-    max-width: 350px;
-    width: 100%;
-    padding: 0 20px;
-    margin: 0 auto;
-    max-height: fit-content;
-    position: relative;
-
-    .headline {
-      span {
-        display: block;
-        text-align: center;
-      }
-      opacity: 0;
-      transition: all 700ms ease-out .1s;
-      transform: translateX(-15px);
-    }
-    p {
-      opacity: 0;
-      transition: all 700ms ease-out .1s;
-      transform: translateX(15px);
-    }
-    &.in-view {
-      .headline, .social-media-share-buttons, .social-media-follow-buttons, p, iframe {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-  }
-  .social-media {
-    .headline, p {
-      transition: all 700ms ease-out .4s;
-    }
-  }
-  .funding {
-    iframe {
-      margin: 25px auto;
-      display: block;
-      opacity: 0;
-      transition: all 700ms ease-out;
-    }
-  }
-  .visit {
-    .headline {
-      transition: all 700ms ease-out .6s;
-    }
-    p {
-      transition: all 700ms ease-out .6s;
-    }
-  }
-
-  .social-media-share-buttons, .social-media-follow-buttons {
-    transition: all 700ms ease-out .4s;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    .fab, .far {
-      font-size: 30px;
-      padding: 5px;
-      margin: 25px 15px;
-      color: $greylight;
-      transition: all 200ms ease-out .1s;
-      cursor: pointer;
-      z-index: 1;
+    .funding, .social-media, .visit {
+      width: 100%;
+      padding: 0 20px;
+      margin: 0 auto;
+      max-height: fit-content;
       position: relative;
 
-      &:after {
-        transition: all 200ms ease-out .1s;
-        content: "";
-        position: absolute;
-        left: -50%;
-        bottom: -10%;
-        width: 100%;
-        height: 3px;
-        background-color: $gold;
+      .headline {
+        span {
+          display: block;
+          text-align: center;
+        }
         opacity: 0;
-        display: block;
+        transition: all 700ms ease-out .1s;
+        transform: translateX(-15px);
       }
-
-      &:hover {
-        &:after {
-          left: 0;
+      p {
+        opacity: 0;
+        transition: all 700ms ease-out .1s;
+        transform: translateX(15px);
+      }
+      &.in-view {
+        .headline, .social-media-share-buttons, .social-media-follow-buttons, p, iframe {
           opacity: 1;
+          transform: translateX(0);
+        }
+      }
+    }
+    .social-media {
+      .headline, p {
+        transition: all 700ms ease-out .4s;
+      }
+    }
+    .funding {
+      iframe {
+        margin: 25px auto;
+        display: block;
+        opacity: 0;
+        transition: all 700ms ease-out;
+      }
+    }
+    .visit {
+      .headline {
+        transition: all 700ms ease-out .6s;
+      }
+      p {
+        transition: all 700ms ease-out .6s;
+      }
+    }
+    .social-media-share-buttons, .social-media-follow-buttons {
+      transition: all 700ms ease-out .4s;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      .fab, .far {
+        font-size: 30px;
+        padding: 5px;
+        margin: 25px 15px;
+        color: $greylight;
+        transition: all 200ms ease-out .1s;
+        cursor: pointer;
+        z-index: 1;
+        position: relative;
+
+        &:after {
+          transition: all 200ms ease-out .1s;
+          content: "";
+          position: absolute;
+          left: -50%;
+          bottom: -10%;
+          width: 100%;
+          height: 3px;
+          background-color: $gold;
+          opacity: 0;
+          display: block;
+        }
+
+        &:hover {
+          &:after {
+            left: 0;
+            opacity: 1;
+          }
         }
       }
     }
   }
-}
 
-.legal-notice {
-  position: relative;
-  bottom: 4%;
-  padding-left: 20px;
-  .legal-cta {
-    cursor: pointer;
+  .legal-notice {
+    position: absolute;
+    padding: 20px;
+    z-index: 1;
+    bottom: 0;
+    .legal-cta {
+      cursor: pointer;
+    }
   }
 }
 
@@ -510,43 +511,43 @@ body {
     }
   }
   .region-two {
-    padding: 50px 0;
     .bullet-points {
       padding: 0;
       flex-wrap: wrap;
-    }
-    .funding, .social-media, .visit {
-      max-width: 100%;
-      margin-top: 25px;
-      padding: 0 10px;
-    }
-    .social-media, .visit {
-      flex: 0 1 50%;
+      padding-bottom: 100px;
+      .funding, .social-media, .visit {
+        max-width: 100%;
+        margin-top: 25px;
+        padding: 0 10px;
+      }
+      .social-media, .visit {
+        flex: 0 1 50%;
+      }
+
+      .funding {
+        flex: 1 1 100%;
+        order: -1;
+        p {
+          max-width: 340px;
+          margin: 0 auto;
+        }
+        .text-thin {
+          margin-bottom: 10px;
+        }
+        iframe {
+          margin: 0 auto;
+          width: 200px;
+        }
+      }
+      .social-media-follow-buttons, .social-media-share-buttons {
+        .fab, .far {
+          font-size: 30px;
+          margin: 15px 5px;
+        }
+      }
     }
 
-    .funding {
-      flex: 1 1 100%;
-      order: -1;
-      p {
-        max-width: 340px;
-        margin: 0 auto;
-      }
-      .text-thin {
-        margin-bottom: 10px;
-      }
-      iframe {
-        margin: 0 auto;
-        width: 200px;
-      }
-    }
-    .social-media-follow-buttons, .social-media-share-buttons {
-      .fab, .far {
-        font-size: 30px;
-        margin: 15px 5px;
-      }
-    }
     .legal-notice {
-      top: unset;
       padding: 10px;
     }
   }
@@ -569,11 +570,3 @@ body {
   }
 }
 
-@media (max-width: 468px) {
-
-  .region-two {
-    .social-media, .visit {
-      max-width: 150px;
-    }
-  }
-}
