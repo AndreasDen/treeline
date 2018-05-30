@@ -1,96 +1,10 @@
 @import "animation";
 @import "variables";
 
-a {
-  color: $greylight !important;
-  text-decoration: none !important;
-  &:hover {
-    text-decoration: none !important;
-  }
-}
-
-p {
-  margin-bottom: 0;
-}
-
-body {
-  padding-right: 0 !important;
-}
-
 #main {
   background-color: black;
   height: 100vh;
   color: $greylight;
-  .inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-}
-
-.text-thin {
-  font-size: $fontsize-md;
-  font-family: $font-family-secondary;
-  font-weight: 300;
-}
-
-.text-bold {
-  font-size: $fontsize-main;
-  //text-shadow: 3px 3px $gold;
-  font-family: $font-family-primary;
-
-}
-
-.text-smaller {
-  font-family: $font-family-secondary;
-  font-weight: 300;
-  font-size: $fontsize-md;
-}
-
-.treeline-background {
-  width: auto;
-  height: 100%;
-  position: fixed;
-  transform: translateX(-50%);
-  left: 50%;
-}
-
-.close {
-  opacity: 1;
-  cursor: pointer;
-  font-size: 30px;
-  z-index: 20;
-  width: 40px;
-  position: absolute;
-  right: 2%;
-  color: $greylight;
-  //text-shadow: 3px 3px $gold;
-  text-align: center;
-  top: 3%;
-  height: 40px;
-  background: none;
-  line-height: 0.8;
-  font-family: $font-family-secondary;
-  font-weight: bold;
-
-  &:hover, &:focus {
-    color: #fff;
-    opacity: 1;
-  }
-}
-
-//--------------REGION ONE--------------
-.region-one {
-  width: 100%;
-  height: 100%;
-  background-image: url("../../assets/blackwood1.png") ;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: auto 100%;
-  background-position: center;
-  backface-visibility: hidden;
   &.overlay {
     &:after {
       content: "";
@@ -124,13 +38,80 @@ body {
       }
     }
   }
+  section {
+    .inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  a {
+    text-decoration: none !important;
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+  body {
+    padding-right: 0 !important;
+  }
+}
+
+.text-thin {
+  font-size: $fontsize-md;
+  font-family: $font-family-secondary;
+  font-weight: 300;
+}
+
+.text-bold {
+  font-size: $fontsize-main;
+  font-family: $font-family-primary;
+}
+
+.close {
+  opacity: 1;
+  cursor: pointer;
+  font-size: 30px;
+  z-index: 20;
+  width: 40px;
+  position: absolute;
+  right: 2%;
+  color: $greylight;
+  text-shadow: 3px 3px $gold;
+  text-align: center;
+  top: 3%;
+  height: 40px;
+  background: none;
+  line-height: 0.8;
+  font-family: $font-family-secondary;
+  font-weight: bold;
+
+  &:hover, &:focus {
+    color: #fff;
+    opacity: 1;
+  }
+}
+
+//--------------REGION ONE--------------
+.region-one {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/blackwood1.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: center;
+  backface-visibility: hidden;
 
   .content {
     width: 100%;
     position: relative;
     max-height: 300px;
   }
-
   .video-wrapper {
     position: absolute;
     z-index: 10;
@@ -189,7 +170,6 @@ body {
     }
 
   }
-
   .text-left, .text-bottom, .text-right {
     max-width: 250px;
     &:after {
@@ -210,11 +190,11 @@ body {
       cursor: default;
     }
   }
-
   .text-left {
     min-height: 150px;
     position: relative;
     padding-left: 30px;
+    backface-visibility: hidden;
     &:after {
       z-index: 10;
       height: 75px;
@@ -233,43 +213,18 @@ body {
     }
 
     .text {
+      display: inline-block;
       p {
         top: 0;
-        animation: movedown .75s;
       }
     }
   }
-
-  .text-bottom {
-    z-index: 10;
-    position: absolute;
-    left: 50%;
-    text-align: center;
-    transform: translateX(-50%);
-    top: 55vh;
-    &:after {
-      height: 4px;
-      top: -15%;
-      left: 50%;
-      width: 75px;
-      transform: translateX(-50%);
-    }
-    .text {
-      cursor: pointer;
-      p {
-        animation: moveleft .75s;
-      }
-    }
-    .glyphicon {
-      font-size: $fontsize-md;
-    }
-  }
-
   .text-right {
     margin-left: auto;
     min-height: 150px;
     position: relative;
     padding-right: 30px;
+    backface-visibility: hidden;
     &:after {
       z-index: 10;
       height: 75px;
@@ -292,9 +247,9 @@ body {
       }
     }
     .text {
+      display: inline-block;
       p {
         top: 0;
-        animation: moveup .75s;
       }
     }
     .play-button {
@@ -312,6 +267,31 @@ body {
       }
     }
   }
+  .text-bottom {
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    bottom: 5%;
+    backface-visibility: hidden;
+    &:after {
+      height: 4px;
+      top: -15%;
+      left: 50%;
+      width: 75px;
+      transform: translateX(-50%);
+    }
+    .text {
+      cursor: pointer;
+      p {
+        animation: moveleft .75s;
+      }
+    }
+    .glyphicon {
+      font-size: $fontsize-md;
+    }
+  }
 }
 
 //--------------REGION TWO--------------
@@ -320,7 +300,10 @@ body {
   width: 100%;
   min-height: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
   .inner {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
@@ -328,17 +311,21 @@ body {
     width: 100%;
     display: flex;
     align-items: flex-end;
-    margin-top: 100px;
     p {
       text-align: center;
     }
-    .funding, .social-media, .visit {
+    .funding, .share, .follow {
       width: 100%;
       padding: 0 20px;
       margin: 0 auto;
       max-height: fit-content;
       position: relative;
-
+      div:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
       .headline {
         span {
           display: block;
@@ -346,39 +333,62 @@ body {
         }
         opacity: 0;
         transition: all 700ms ease-out .1s;
-        transform: translateX(-15px);
+        //transform: translateX(-15px);
       }
       p {
         opacity: 0;
         transition: all 700ms ease-out .1s;
-        transform: translateX(15px);
+        //transform: translateX(15px);
       }
       &.in-view {
         .headline, .social-media-share-buttons, .social-media-follow-buttons, p, iframe {
           opacity: 1;
-          transform: translateX(0);
+          //transform: translateX(0);
         }
       }
     }
-    .social-media {
-      .headline, p {
-        transition: all 700ms ease-out .4s;
-      }
-    }
     .funding {
+      border-radius: 0%;
+      min-height: 100%;
+      width: 50%;
+      display: flex;
+      &:after {
+        background: rgba(255,255,255,0.1);
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0px;
+        height: 40%;
+        width: 100%;
+        transform: skewY(-5deg) scale(1.5);
+        z-index: 1;
+      }
       iframe {
         margin: 25px auto;
         display: block;
-        opacity: 0;
-        transition: all 700ms ease-out;
       }
     }
-    .visit {
-      .headline {
-        transition: all 700ms ease-out .6s;
+    .social-media {
+      display: flex;
+      flex-direction: column;
+    }
+    .share {
+      background-color: #d4af37;
+      max-width: 250px;
+      transform: skewY(-5deg);
+      margin-bottom: 20px;
+      .headline, p {
+        color: $greydark;
+        transition: all 700ms ease-out .4s;
       }
-      p {
+    }
+    .follow {
+      background-color: $gold;
+      max-width: 250px;
+      transform: skewY(-5deg);
+      .headline, p {
         transition: all 700ms ease-out .6s;
+        color: #1f1f1f;
       }
     }
     .social-media-share-buttons, .social-media-follow-buttons {
@@ -386,11 +396,12 @@ body {
       opacity: 0;
       display: flex;
       justify-content: center;
+      z-index: 30;
       .fab, .far {
         font-size: 30px;
         padding: 5px;
         margin: 25px 15px;
-        color: $greylight;
+        color: $greydark;
         transition: all 200ms ease-out .1s;
         cursor: pointer;
         z-index: 1;
@@ -404,7 +415,7 @@ body {
           bottom: -10%;
           width: 100%;
           height: 3px;
-          background-color: $gold;
+          background-color: $greydark;
           opacity: 0;
           display: block;
         }
@@ -418,12 +429,16 @@ body {
       }
     }
   }
-
   .legal-notice {
     position: absolute;
     padding: 20px;
     z-index: 1;
     bottom: 0;
+
+    h3 {
+      font-family: $font-family-secondary;
+      font-size: $fontsize-md;
+    }
     .legal-cta {
       cursor: pointer;
     }
@@ -475,18 +490,13 @@ body {
 
 //-------------->1350px--------------
 @media (max-width: 1350px) {
-
-  .text-thin {
-    font-size: $fontsize-sm;
-  }
-  .text-bold {
-    font-size: 3em;
-    &.text-small {
-      font-size: $fontsize-md;
+  #main {
+    .text-thin {
+      font-size: $fontsize-sm;
     }
-  }
-  .text-smaller {
-    font-size: $fontsize-sm;
+    .text-bold {
+      font-size: 3em;
+    }
   }
 
   .region-one {
@@ -505,9 +515,6 @@ body {
     }
     .text-bold {
       font-size: 28px;
-      &.text-small {
-        font-size: 18px;
-      }
     }
   }
   .region-two {
@@ -515,15 +522,16 @@ body {
       padding: 0;
       flex-wrap: wrap;
       padding-bottom: 100px;
-      .funding, .social-media, .visit {
+      .social-media {
+        width: 100%;
+      }
+      .funding, .share, .follow {
         max-width: 100%;
-        margin-top: 25px;
         padding: 0 10px;
       }
-      .social-media, .visit {
+      .share, .follow {
         flex: 0 1 50%;
       }
-
       .funding {
         flex: 1 1 100%;
         order: -1;
@@ -539,6 +547,9 @@ body {
           width: 200px;
         }
       }
+      .share {
+        margin-top: 60px;
+      }
       .social-media-follow-buttons, .social-media-share-buttons {
         .fab, .far {
           font-size: 30px;
@@ -546,7 +557,6 @@ body {
         }
       }
     }
-
     .legal-notice {
       padding: 10px;
     }
@@ -564,9 +574,7 @@ body {
         }
       }
     }
-    .text-bottom {
-      top: 58vh;
-    }
   }
 }
+
 

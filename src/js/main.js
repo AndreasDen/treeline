@@ -91,8 +91,10 @@ function elementsAnimation() {
             if ((element_bottom_position >= window_top_position) &&
                 (element_top_position < window_bottom_position - 100)) {
                 $element.addClass('in-view');
+                $element.find('.text-bold').addClass('shine-animation');
             } else {
                 $element.removeClass('in-view');
+                $element.find('.text-bold').removeClass('shine-animation');
             }
         });
 
