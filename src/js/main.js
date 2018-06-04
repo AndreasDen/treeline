@@ -89,25 +89,10 @@ function elementsAnimation() {
 
             //check to see if this current container is within viewport
             if ((element_bottom_position >= window_top_position) &&
-                (element_top_position < window_bottom_position - 100)) {
+                (element_top_position < window_bottom_position - 50)) {
                 $element.addClass('in-view');
-                $element.find('.text-bold').addClass('shine-animation');
             } else {
                 $element.removeClass('in-view');
-                $element.find('.text-bold').removeClass('shine-animation');
-            }
-        });
-
-        //set class fixed on elements
-        $.each($fixed_elements, function () {
-            var $element = $(this);
-
-            //check to see if this current container is within viewport
-            if (window.pageYOffset >= $fixed_element_offset - 30) {
-                $element.addClass('fixed');
-            }
-            else {
-                $element.removeClass('fixed');
             }
         });
     }
@@ -128,7 +113,7 @@ function scrollSpeed() {
                 inst.update(scrollTop);
             });
         }, {passive: true});
-    }
+    };
 
     var moveItItem = function (el) {
         this.el = $(el);
@@ -136,7 +121,7 @@ function scrollSpeed() {
     };
 
     moveItItem.prototype.update = function (scrollTop) {
-        this.el.css('transform', 'translate(-50%,' + -(scrollTop / this.speed) + 'px)');
+        this.el.css('transform', 'translate(-50%,' + -(scrollTop / this.speed) + 'px)  skewY(-5deg)');
     };
 
 // Initialization
