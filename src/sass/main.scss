@@ -129,7 +129,7 @@
       height: 25px;
       z-index: -1;
       left: -9px;
-      bottom: -1%;
+      bottom: -9px;
     }
     &:after {
       content: "";
@@ -140,7 +140,7 @@
       height: 25px;
       right: -9px;
       z-index: -1;
-      top: -1%;
+      top: -9px;
     }
     .close {
       display: none;
@@ -172,6 +172,17 @@
   }
   .text-left, .text-bottom, .text-right {
     max-width: 250px;
+    &:before {
+      background: #313131;
+      width: 250px;
+      height: 100%;
+      transform: skewY(-5deg);
+      box-shadow: 10px 10px 0 0 rgba(0, 0, 0, .2);
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+    }
     &:after {
       content: "";
       position: absolute;
@@ -191,20 +202,14 @@
     }
   }
   .text-left {
-    //min-height: 150px;
     position: relative;
-    //padding-left: 30px;
     backface-visibility: hidden;
     min-height: 150px;
     padding-top: 20px;
     .text {
-      background: $grey;
-      /* color: #d4af37; */
       width: 250px;
       padding: 10px;
       text-align: center;
-      transform: skewY(-5deg);
-      box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2);
     }
     &:after {
       z-index: 10;
@@ -212,17 +217,6 @@
       top: 35px;
       left: -9px;
     }
-    //&:hover {
-    //  &:after {
-    //    top: -5px;
-    //  }
-    //  //.text {
-    //  //  p {
-    //  //    top: 10px;
-    //  //  }
-    //  //}
-    //}
-
     .text {
       display: inline-block;
       p {
@@ -242,28 +236,11 @@
       top: 40px;
       right: -9px;
     }
-    //&:hover {
-    //  &:after {
-    //    top: 75px;
-    //  }
-    //  .play-button {
-    //    .glyphicon {
-    //      transform: scale(1.1);
-    //    }
-    //  }
-    //  //.text {
-    //  //  p {
-    //  //    top: -10px;
-    //  //  }
-    //  //}
-    //}
+
     .text {
-      background: $grey;
       width: 250px;
       padding: 10px;
       text-align: center;
-      transform: skewY(-5deg);
-      box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.2);
       p {
         top: 0;
       }
@@ -272,7 +249,6 @@
       z-index: 1;
       left: -10%;
       position: absolute;
-      transform: skewY(-5deg);
       top: 5%;
       cursor: pointer;
 
@@ -289,22 +265,17 @@
     position: absolute;
     left: 50%;
     text-align: center;
-    transform: translateX(-50%) skewY(-5deg);
+    transform: translateX(-50%);
     bottom: 3%;
     backface-visibility: hidden;
     background: #d4af37;
     width: 250px;
     padding: 5px;
     box-shadow: 10px 10px 0 0 rgba(0, 0, 0, .2);
-    color: $greydark;
-
-    //&:after {
-    //  height: 4px;
-    //  top: -15%;
-    //  left: 50%;
-    //  width: 75px;
-    //  transform: translateX(-50%);
-    //}
+    &.orient-landscape {
+      left: 5%;
+      transform: translateX(0);
+    }
     .text {
       cursor: pointer;
       p {
@@ -339,7 +310,7 @@
     }
     .funding, .share, .follow {
       width: 100%;
-      padding: 0 20px;
+      padding: 20px;
       margin: 0 auto;
       max-height: fit-content;
       position: relative;
@@ -361,12 +332,10 @@
       p {
         opacity: 0;
         transition: all 700ms ease-out .1s;
-        //transform: translateX(15px);
       }
       &.in-view {
         .headline, .social-media-share-buttons, .social-media-follow-buttons, p, iframe {
           opacity: 1;
-          //transform: translateX(0);
         }
       }
     }
@@ -409,22 +378,32 @@
       display: flex;
       flex-direction: column;
     }
+    .share, .follow {
+      &:before {
+        background-color: $gold;
+        transform: skewY(-5deg);
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
     .share {
-      background-color: $gold;
       max-width: 250px;
-      transform: skewY(-5deg);
       margin-bottom: 20px;
       .headline, p {
+        z-index: 1;
         color: $greydark;
-        transition: all 700ms ease-out .4s;
+        transition: all 700ms ease-out .3s;
       }
     }
     .follow {
-      background-color: $gold;
       max-width: 250px;
-      transform: skewY(-5deg);
       .headline, p {
-        transition: all 700ms ease-out .6s;
+        z-index: 1;
+        transition: all 700ms ease-out .3s;
         color: #1f1f1f;
       }
     }
@@ -575,7 +554,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transform: skewY(-5deg);
+
         p {
           max-width: 340px;
           margin: 0 auto;
@@ -589,7 +568,7 @@
         .text {
           &:before {
             height: 100%;
-            transform: skewY(0deg) scale(1);
+            transform: skewY(-5deg) scale(1);
           }
         }
         .text-thin {
@@ -614,7 +593,6 @@
 
 //-------------->786px--------------
 @media (max-width: 786px) {
-
   .region-one {
     .text-left {
       p {

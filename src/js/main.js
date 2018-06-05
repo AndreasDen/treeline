@@ -11,6 +11,7 @@
         elementsAnimation();
         scrollSpeed();
         triggerModal();
+        checkDeviceSize();
     }
 }());
 
@@ -108,6 +109,7 @@ function scrollSpeed() {
         });
 
         window.addEventListener('scroll', function () {
+            checkDeviceSize();
             var scrollTop = $window.scrollTop();
             instances.forEach(function (inst) {
                 inst.update(scrollTop);
@@ -121,7 +123,14 @@ function scrollSpeed() {
     };
 
     moveItItem.prototype.update = function (scrollTop) {
-        this.el.css('transform', 'translate(-50%,' + -(scrollTop / this.speed) + 'px)  skewY(-5deg)');
+        var scrollText = $('.text-bottom');
+        if (scrollText.hasClass('orient-landscape')) {
+            this.el.css('transform', 'translateY('+ -(scrollTop / this.speed) + 'px)');
+
+        } else {
+            this.el.css('transform', 'translate(-50%,' + -(scrollTop / this.speed) + 'px)');
+
+        }
     };
 
 // Initialization
@@ -134,7 +143,14 @@ function triggerModal() {
         $('#myInput').trigger('focus')
     })
 }
-
+function checkDeviceSize() {
+    var scrollText = $('.text-bottom');
+    if(window.innerHeight < window.innerWidth && window.innerWidth < 786 ){
+        scrollText.addClass('orient-landscape');
+    } else {
+        scrollText.removeClass('orient-landscape');
+    }
+}
 
 
 
