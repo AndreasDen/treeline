@@ -251,12 +251,13 @@
       position: absolute;
       top: 5%;
       cursor: pointer;
-
+      box-shadow: 5px 5px 0 0 rgba(0,0,0,0.2);
       .glyphicon {
         transition: .5s ease-in-out;
         background-color: $gold;
         font-size: $fontsize-lg;
-        padding: 10px 8px 10px 12px;
+        padding: 15px 13px 15px 18px;
+
       }
     }
   }
@@ -344,6 +345,7 @@
       min-height: 100%;
       width: 50%;
       display: flex;
+      z-index: 5;
       .text {
         padding: 20px;
         p {
