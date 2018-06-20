@@ -269,7 +269,7 @@
     transform: translateX(-50%);
     bottom: 3%;
     backface-visibility: hidden;
-    background: #d4af37;
+    background: $gold;
     width: 250px;
     padding: 5px;
     box-shadow: 10px 10px 0 0 rgba(0, 0, 0, .2);
@@ -343,7 +343,7 @@
     .funding {
       border-radius: 0%;
       min-height: 100%;
-      width: 50%;
+      width: 60%;
       display: flex;
       z-index: 5;
       .text {
@@ -357,9 +357,9 @@
           content: '';
           position: absolute;
           left: 0;
-          bottom: -5px;
+          bottom: -9px;
           height: 40%;
-          width: 100%;
+          width: 90%;
           transform: skewY(-5deg) scale(1.5);
         }
       }
